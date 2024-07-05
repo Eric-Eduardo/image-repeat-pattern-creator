@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move and Resize Images with Mouse</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="content-canva">
+            <div id="canvas">
+
+            </div>
+        </div>
+
+        <div class="options">
+            <label class="btn" id="file-input" for="fileInput">Escolher arquivo</label>
+            <input class="custom-file-input" type="file" id="fileInput" accept="image/*">
+            <button class="btn" id="export-btn" onclick="doCapture()">Baixar imagem</button>
+            <button class="btn" id="test-btn" onclick="doCaptureTeste()">Testar</button>
+            <button class="btn btn-girar" id="btn-girar-horario">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rotate-clockwise" width="20"
+                    height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5" />
+                </svg>
+            </button>
+            <button class="btn btn-girar" id="btn-girar-antihorario">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rotate" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" />
+                </svg>
+            </button>
+            <button class="btn" id="btn-aumentar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 5l0 14" />
+                    <path d="M5 12l14 0" />
+                  </svg>
+            </button>
+            <button class="btn" id="btn-diminuir">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M5 12l14 0" />
+                  </svg>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="teste.js"></script>
+    <script src="capture.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body {
+    /* background-color: rgb(17, 20, 27); */
+    padding-top: 10px;
+    height: 190vh;
+    background-size: 300px;
+}
+
+.options {
+    width: 600px;
+    display: flex;
+    gap: 6px;
+}
+
+.custom-file-input {
+    display: none;
+}
+
+.btn {
+    font-family: monospace, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    margin-top: 6px;
+    background-color: rgb(42, 121, 191);
+}
+
+#file-input {
+    background-color: rgb(62, 62, 180);
+}
+
+#export-btn {
+    background-color: rgb(80, 154, 31);
+}
+
+#test-btn {
+    background-color: rgb(205, 102, 5);
+}
+.content {
+    margin: 0 auto;
+    padding: 20px;
+    width: fit-content;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;}
+
+.content-canva {
+    width: 601px;
+    height: 601px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px solid rgb(211, 211, 222);
+    
+    background-color: white;
+}
+
+#canvas {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+img.draggable {
+    /* width: 300px; */
+    position: relative;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    transform: rotate(0deg);
+}
+
+img.main-image {
+    cursor: move;
+}
+.selected {
+    border: 3px solid rgb(104, 159, 255);
+}
