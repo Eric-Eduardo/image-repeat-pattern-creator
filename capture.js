@@ -1,5 +1,5 @@
 function doCapture() {
-    html2canvas(document.getElementById('canvas')).then(function(canvas) {
+    html2canvas(document.getElementById('canvas'), {backgroundColor: null}).then(function(canvas) {
         var a = document.createElement('a');
         a.id = 'elementA'
         a.href = canvas.toDataURL("image/png");
