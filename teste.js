@@ -1,6 +1,13 @@
 
 let nId = 0;
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('canvas').style.backgroundColor = document.getElementById('input-color').value;
+    document.querySelector('.content-canva').style.backgroundColor = document.getElementById('input-color').value;
+    document.querySelector('.color-picker').style.backgroundColor = document.getElementById('input-color').value;
+
+})
+
 document.getElementById('fileInput').addEventListener('change', function (event) {
     var arquivo = event.target.files[0];
     if (arquivo) {
@@ -38,6 +45,14 @@ document.getElementById('btn-diminuir').addEventListener('click', () => {
 document.getElementById('btn-inverter').addEventListener('click', () => {
     inverter();
 });
+
+let inputColor = document.getElementById('input-color');
+
+inputColor.addEventListener('input', () => {
+    document.getElementById('canvas').style.backgroundColor = inputColor.value;
+    document.querySelector('.content-canva').style.backgroundColor = inputColor.value;
+    document.querySelector('.color-picker').style.backgroundColor = inputColor.value;
+})
 
 let offsetX = 0;
 let offsetY = 0;

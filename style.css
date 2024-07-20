@@ -1,6 +1,8 @@
 * {
     margin: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: monospace, sans-serif;
 }
 
 body {
@@ -10,46 +12,25 @@ body {
     background-size: 300px;
 }
 
-.options {
-    width: 600px;
-    display: flex;
-    gap: 6px;
+button {
+    background-color: transparent;
 }
 
-.custom-file-input {
-    display: none;
-}
 
-.btn {
-    font-family: monospace, sans-serif;
-    font-weight: normal;
+label {
     font-size: 14px;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    margin-top: 6px;
-    background-color: rgb(42, 121, 191);
 }
 
-#file-input {
-    background-color: rgb(62, 62, 180);
-}
-
-#export-btn {
-    background-color: rgb(80, 154, 31);
-}
-
-#test-btn {
-    background-color: rgb(205, 102, 5);
+.middle {
+    display: flex;
+    gap: 7px;
 }
 
 .content {
     margin: 0 auto;
     padding: 20px;
     width: fit-content;
+    max-width: 641px;
     background-color: white;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
@@ -63,7 +44,6 @@ body {
     align-items: center;
     overflow: hidden;
     border: 2px solid rgb(211, 211, 222);
-    background-color: #d4dee3;
 }
 
 #canvas {
@@ -94,3 +74,84 @@ img.main-image {
 .selected {
     border: 3px solid rgb(104, 159, 255);
 }
+
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 7px;
+}
+
+.options .btn {
+    /* padding: 10px; */
+    border: none;
+    height: fit-content;
+}
+
+.options .set-options{
+    height: 40px;
+    display: flex;
+    border: 1px solid rgb(184, 200, 217);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.options .set-options .btn {
+    height: 100%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.options .set-options .btn:hover {
+    background-color: #b2bece2f;
+}
+.options .set-options .btn:not(:last-child, #file-input) {
+    border-right: 1px solid #b2bece;
+    /* border-right: 1px solid #393c40; */
+}
+
+.options svg {
+   vertical-align: middle;
+   height: fit-content;
+}
+
+.color-picker-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#input-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.color-picker {
+    width: 30px; 
+    height: 30px;
+    border-radius: 100px;
+}
+
+.custom-file-input {
+    display: none;
+    opacity: 0;
+}
+
+
+
+/* .btn {
+    font-family: monospace, sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    
+    cursor: pointer;
+    border: none;
+} */
