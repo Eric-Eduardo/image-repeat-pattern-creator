@@ -1,6 +1,6 @@
 function doCapture() {
 
-    document.getElementById('canvas').style.backgroundColor = 'transparent';
+    // document.getElementById('canvas').style.backgroundColor = 'transparent';
     html2canvas(document.getElementById('canvas'), {backgroundColor: null}).then(function(canvas) {
         var a = document.createElement('a');
         a.id = 'elementA'
@@ -8,7 +8,7 @@ function doCapture() {
         a.download = "background-repeat.png";
         a.click();
     })
-    document.getElementById('canvas').style.backgroundColor = '#d4dee3';
+    // document.getElementById('canvas').style.backgroundColor = '#d4dee3';
 }
 
 document.getElementById('test-btn').addEventListener('click', doCaptureTeste);

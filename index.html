@@ -19,10 +19,25 @@
         </div>
 
         <div class="options">
-            <label class="btn" id="file-input" for="fileInput">Escolher arquivo</label>
+            <label class="btn" id="file-input" for="fileInput">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-upload" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                    <path d="M12 11v6" />
+                    <path d="M9.5 13.5l2.5 -2.5l2.5 2.5" />
+                  </svg>
+            </label>
             <input class="custom-file-input" type="file" id="fileInput" accept="image/*">
-            <button class="btn" id="export-btn" onclick="doCapture()">Baixar imagem</button>
-            <button class="btn" id="test-btn" onclick="doCaptureTeste()">Testar</button>
+            <button class="btn" id="export-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                    <path d="M7 11l5 5l5 -5" />
+                    <path d="M12 4l0 12" />
+                  </svg>
+            </button>
+            <button class="btn" id="test-btn">Testar</button>
             <button class="btn btn-girar" id="btn-girar-horario">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rotate-clockwise" width="20"
                     height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round"
@@ -48,6 +63,13 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-minus" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M5 12l14 0" />
+                  </svg>
+            </button>
+            <button class="btn" id="btn-inverter">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-360" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M17 15.328c2.414 -.718 4 -1.94 4 -3.328c0 -2.21 -4.03 -4 -9 -4s-9 1.79 -9 4s4.03 4 9 4" />
+                    <path d="M9 13l3 3l-3 3" />
                   </svg>
             </button>
         </div>

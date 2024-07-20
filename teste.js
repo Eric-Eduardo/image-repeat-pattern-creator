@@ -35,6 +35,10 @@ document.getElementById('btn-diminuir').addEventListener('click', () => {
     redimensionar(-10);
 });
 
+document.getElementById('btn-inverter').addEventListener('click', () => {
+    inverter();
+});
+
 let offsetX = 0;
 let offsetY = 0;
 
@@ -60,7 +64,7 @@ function onMouseDown(event) {
     if (document.querySelector('.selected') != null && document.querySelector('.selected').id != activeElement.id) {
         document.querySelector('.selected').classList.remove('selected');
     }
-    
+
 
     activeElement.classList.add('selected');
     offsetX = event.clientX - activeElement.offsetLeft;
@@ -100,7 +104,7 @@ function createImage(event, leftPosition, topPosition) {
 }
 
 function onMouseUp(event) {
-    
+
     let topCorner = '';
     let leftCorner = '';
     if (event.target.id != '') {
@@ -109,9 +113,9 @@ function onMouseUp(event) {
         passouEsquerda = (event.clientX - offsetX) < 0;
         passouCima = (event.clientY - offsetY) < 0;
         passouBaixo = (event.clientY - offsetY) + activeElement.offsetHeight > 600;
-        
+
         // console.log(event.clientY, offsetY, (event.clientY - offsetY));
-        
+
         clearImages();
 
         if (passouDireita || passouEsquerda) {
@@ -140,8 +144,8 @@ function onMouseUp(event) {
         }
 
         if ((passouCima && passouDireita) || (passouCima && passouEsquerda) || (passouBaixo && passouDireita) || (passouBaixo && passouEsquerda)) {
-            createImage(event, leftCorner, topCorner);  
-        } 
+            createImage(event, leftCorner, topCorner);
+        }
 
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
@@ -157,18 +161,35 @@ function girar(angleValue) {
     let image = document.querySelector('.selected');
 
     if (image != null) {
-        let texto = image.style.transform;
-        if (texto == '') {
-            texto = `rotate(${0}deg)`;
+
+        let options = image.style.transform.split(' ');
+        if (image.style.transform.includes('rotate')) {
+            for (let i in options) {
+                if (options[i].startsWith('rotate')) {
+
+                    let angulo = parseInt(options[i].match(/-?\d+/)[0], 10);
+                    options[i] = `rotate(${angulo + angleValue}deg)`;
+                    break;
+                }
+            }
+        } else {
+            options[0] += `rotate(${angleValue}deg)`;
         }
-        let angulo = parseInt(texto.match(/-?\d+/)[0], 10);
-        image.style.transform = `rotate(${angulo+angleValue}deg)`;
+        image.style.transform = options.join(" ");
+
+        // let texto = image.style.transform;
+        // if (texto == '') {
+        //     texto = `rotate(${0}deg)`;
+        // }
+        // let angulo = parseInt(texto.match(/-?\d+/)[0], 10);
+        // image.style.transform = `rotate(${angulo + angleValue}deg)`;
     }
 }
 
 function redimensionar(size) {
     let image = document.querySelector('.selected');
     if (image != null) {
+
         let texto = image.style.width;
         if (texto == '') {
             texto = `300px`;
@@ -176,7 +197,31 @@ function redimensionar(size) {
         let width = parseInt(texto.match(/(\d+)px/)[0], 10);
 
         if (width - size > 0) {
-            image.style.width = `${width+size}px`;
+            image.style.width = `${width + size}px`;
         }
+    }
+}
+
+function inverter() {
+    let image = document.querySelector('.selected');
+
+    if (image != null) {
+        let options = image.style.transform.split(' ');
+        if (image.style.transform.includes('scaleX')) {
+            for (let i in options) {
+                if (options[i].startsWith('scaleX')) {
+                    if (options[i] == 'scaleX(-1)') {
+                        options[i] = 'scaleX(1)';
+                    } else {
+                        options[i] = 'scaleX(-1)';
+                    }
+                    break;
+                }
+            }
+        } else {
+            options[0] += " scaleX(-1)";
+        }
+        image.style.transform = options.join(" ");
+        // console.log(options);
     }
 }
