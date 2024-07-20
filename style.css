@@ -45,13 +45,15 @@ body {
 #test-btn {
     background-color: rgb(205, 102, 5);
 }
+
 .content {
     margin: 0 auto;
     padding: 20px;
     width: fit-content;
     background-color: white;
     border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;}
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
 
 .content-canva {
     width: 601px;
@@ -61,12 +63,14 @@ body {
     align-items: center;
     overflow: hidden;
     border: 2px solid rgb(211, 211, 222);
-    }
+    background-color: #d4dee3;
+}
 
 #canvas {
     position: relative;
     width: 600px;
     height: 600px;
+    /* background-color: #d4dee3; */
 }
 
 img.draggable {
@@ -86,6 +90,7 @@ img.draggable {
 img.main-image {
     cursor: move;
 }
+
 .selected {
     border: 3px solid rgb(104, 159, 255);
 }
