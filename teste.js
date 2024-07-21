@@ -68,7 +68,6 @@ const canvas = document.getElementById('canvas');
 
 canvas.addEventListener('click', (event) => {
     if (document.querySelector('.selected') && !event.target.classList.contains('selected')) {
-        console.log("Descelecionando")
         document.querySelector('.selected').classList.remove('selected');
     }
 })
@@ -92,7 +91,6 @@ function onMouseMove(event) {
     if (activeElement) {
         activeElement.style.left = `${event.clientX - offsetX}px`;
         activeElement.style.top = `${event.clientY - offsetY}px`;
-
     }
 }
 
@@ -120,16 +118,22 @@ function createImage(event, leftPosition, topPosition) {
 
 function onMouseUp(event) {
 
+    //clientX, clientY - coordenada do mouse com relação à página
+    //offsetX, offsetY - coordenada do mouse com relação ao elemento
+
+    const canvas = document.getElementById('canvas');
+
     let topCorner = '';
     let leftCorner = '';
     if (event.target.id != '') {
 
-        passouDireita = (event.clientX - offsetX) + activeElement.offsetWidth > 600;
-        passouEsquerda = (event.clientX - offsetX) < 0;
-        passouCima = (event.clientY - offsetY) < 0;
-        passouBaixo = (event.clientY - offsetY) + activeElement.offsetHeight > 600;
+        passouDireita = canvas.getBoundingClientRect().right - event.target.getBoundingClientRect().right < 0;
+        passouEsquerda = (event.target.getBoundingClientRect().left - canvas.getBoundingClientRect().left) < 0;
+        passouCima = (event.target.getBoundingClientRect().top - canvas.getBoundingClientRect().top) < 0;
+        passouBaixo = (canvas.getBoundingClientRect().bottom - event.target.getBoundingClientRect().bottom) < 0;
 
-        // console.log(event.clientY, offsetY, (event.clientY - offsetY));
+        // passouBaixo = (event.clientY - offsetY) + activeElement.offsetHeight > 600;
+        // console.log(canvas.getBoundingClientRect().bottom - event.target.getBoundingClientRect().bottom)
 
         clearImages();
 

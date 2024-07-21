@@ -21,6 +21,11 @@ label {
     font-size: 14px;
 }
 
+.hover,
+.hover>* {
+    cursor: pointer;
+}
+
 .middle {
     display: flex;
     gap: 7px;
@@ -89,14 +94,27 @@ img.main-image {
     height: fit-content;
 }
 
-.options .set-options{
+.options .set-options {
     height: 40px;
     display: flex;
     border: 1px solid rgb(184, 200, 217);
     border-radius: 100px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-bottom: 10px;
 }
+
+/* 
+.options .set-options .btn:first-child,
+.options .set-options label.btn:first-child {
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.options .set-options .btn:last-child,
+.options .set-options label.btn:first-child {
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+} */
 
 .options .set-options .btn {
     height: 100%;
@@ -106,17 +124,19 @@ img.main-image {
     align-items: center;
     cursor: pointer;
 }
+/* 
 .options .set-options .btn:hover {
     background-color: #b2bece2f;
-}
-.options .set-options .btn:not(:last-child, #file-input) {
-    border-right: 1px solid #b2bece;
+} */
+
+.options .set-options .btn:not(:first-child, #file-input) {
+    /* border-left: 1px solid #b2bece; */
     /* border-right: 1px solid #393c40; */
 }
 
 .options svg {
-   vertical-align: middle;
-   height: fit-content;
+    vertical-align: middle;
+    height: fit-content;
 }
 
 .color-picker-wrapper {
@@ -135,7 +155,7 @@ img.main-image {
 }
 
 .color-picker {
-    width: 30px; 
+    width: 30px;
     height: 30px;
     border-radius: 100px;
 }
